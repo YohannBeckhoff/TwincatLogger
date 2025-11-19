@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<TcEventSources Version="2">
+	<Source>
+		<GUID>{75F97671-9758-4A94-8302-841719EE9F80}</GUID>
+		<Name LcId="1033">NewEventClass_DisplayText</Name>
+		<Event>
+			<Id>1</Id>
+			<Message LcId="1033">Log : ({0})</Message>
+		</Event>
+	</Source>
+</TcEventSources>

@@ -1,0 +1,69 @@
+<div id="TCEvent" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%">
+
+<div id="TcHmiEventGrid" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEventGrid" data-tchmi-height="80" data-tchmi-height-unit="%" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-server-interval="1000" data-tchmi-show-menu-bar="true" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-background-image-horizontal-alignment="Center" data-tchmi-background-image-vertical-alignment="Center" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="0" data-tchmi-bottom="20" data-tchmi-bottom-unit="%">
+<script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
+[
+  {
+    "path": "domain",
+    "comparator": "==",
+    "value": "TcHmiEventLogger"
+  },
+  {
+    "logic": "OR"
+  },
+  {
+    "path": "domain",
+    "comparator": "==",
+    "value": "TcHmiAlarm"
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-columns" type="application/json">
+[
+  {
+    "columnName": "type"
+  },
+  {
+    "columnName": "severity"
+  },
+  {
+    "columnName": "timeAndDateRaised"
+  },
+  {
+    "columnName": "text",
+    "width": 1,
+    "widthUnit": "factor"
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
+[
+  {
+    "name": "timeRaised",
+    "order": "Descending"
+  }
+]
+</script>
+
+</div>
+<div id="TcHmiButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="80" data-tchmi-left-unit="%" data-tchmi-text="Export" data-tchmi-top="85" data-tchmi-top-unit="%" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right-unit="%" data-tchmi-bottom-unit="%" data-tchmi-right="5" data-tchmi-bottom="5">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%s%PLC1.MAIN.bExport%/s%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+</div>
+</div>
